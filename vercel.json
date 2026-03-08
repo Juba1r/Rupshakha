@@ -1,0 +1,25 @@
+{
+  "functions": {
+    "backend/api/*.php": {
+      "runtime": "vercel-php@0.7.0"
+    }
+  },
+  "outputDirectory": "frontend/.next",
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/api/$1.php"
+    },
+    {
+      "src": "/_next/(.*)",
+      "dest": "frontend/_next/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "/api"
+  }
+}
